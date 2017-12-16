@@ -1,0 +1,16 @@
+{
+  "name": "operation-service",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:SnowFlowers/operation-service.git",
+  "author": "Paco <772045739@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-mount": "^3.0.0",
+    "koa-router": "^7.3.0",
+    "mongoose": "^4.13.6",
+    "query-string": "^5.0.1"
+  }
+}
