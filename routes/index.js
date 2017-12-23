@@ -9,7 +9,10 @@ const Router = require('koa-router');
 const rootRouter = new Router();
 
 const usercenter = require('./usercenter');
+const analysis = require('./analysis');
 
-rootRouter.use('/usercenter', usercenter.routes(), usercenter.allowedMethods())
+rootRouter.use('/usercenter', usercenter.routes(), usercenter.allowedMethods());
+rootRouter.use('/analysiscenter', analysis.routes(), analysis.allowedMethods());
+
 
 module.exports = rootRouter;

@@ -18,7 +18,8 @@ class GetInfo {
   constructor(props = {}) {
     this.userId = props._id;
     this.level = props.level || USER_LEVEL.MEMBER;
-    this.type = props.type || USER_TYPE.TOURIST
+    this.type = props.type || USER_TYPE.TOURIST;
+    this.name = props.name || "未知用户";
   }
 }
 
