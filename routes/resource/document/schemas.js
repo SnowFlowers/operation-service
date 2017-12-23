@@ -8,25 +8,34 @@
 
 const mongoose = require('mongoose');
 
-const RecordSchema = new mongoose.Schema({
-  userId: String,
+const DocumentSchema = new mongoose.Schema({
+  title: String,
+  authorId: String,
+  coverImg: String,
+  content: String,
   type: String,
   createDate: {
+    type: Number,
+    default: Date.now()
+  },
+  updateDate: {
     type: Number,
     default: Date.now()
   }
 });
 
-RecordSchema.pre('save', function(next) {
-  this.createDate = Date.now();
+DocumentSchema.pre('save', function(next) {
+  if(!this.isNew) {
+    this.updateDate = Date.now();
+  }
 });
 
-RecordSchema.statics = {
+DocumentSchema.statics = {
   findByName: function(name) {
     return this.findOne({name: name})
   },
-  findRecordList: function(searchType) {
-    return this.find(searchType).sort({createDate: -1});
+  findById: function(id) {
+    return this.findOne({_id: id})
   },
   deleteById: function(id) {
     return this.remove({_id: id})
@@ -39,4 +48,4 @@ RecordSchema.statics = {
   }
 };
 
-module.exports = RecordSchema;
+module.exports = DocumentSchema;
