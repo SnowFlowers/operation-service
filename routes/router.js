@@ -2,14 +2,14 @@
  * @Author: Paco
  * @Date:   2017-12-10 14:11:38
  * @Last Modified by:   Paco
- * @Last Modified time: 2017-12-21 09:12:58
+ * @Last Modified time: 2017-12-13 13:41:12
  */
 const Router = require('koa-router');
 const User = require('./models');
 const {
   LoginDto,
   GetInfo
-} = require('./dtos');
+} = require('./dots');
 
 const {InvalidQuery} = require('../../../common/dtos/InvalidDto');
 
@@ -124,7 +124,9 @@ UserRouter.post('/updateUserType', async function(ctx, next) {
 
 UserRouter.get('/allUser', async function(ctx, next) {
   const result = await User.findAll();
-  ctx.resp = {
+  ctx.body = {
+    errCode: 0,
+    message: '操作成功',
     data: result
   }
 });
