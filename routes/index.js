@@ -10,9 +10,11 @@ const rootRouter = new Router();
 
 const usercenter = require('./usercenter');
 const analysis = require('./analysis');
+const resource = require('./resource');
 
 rootRouter.use('/usercenter', usercenter.routes(), usercenter.allowedMethods());
 rootRouter.use('/analysiscenter', analysis.routes(), analysis.allowedMethods());
+rootRouter.use('/resourcecenter', resource.routes(), resource.allowedMethods());
 
 
 module.exports = rootRouter;
