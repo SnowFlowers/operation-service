@@ -19,6 +19,7 @@ const RecordSchema = new mongoose.Schema({
 
 RecordSchema.pre('save', function(next) {
   this.createDate = Date.now();
+  next();
 });
 
 RecordSchema.statics = {
