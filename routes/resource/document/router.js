@@ -21,7 +21,7 @@ const {InvalidQuery} = require('../../../common/dtos/InvalidDto');
 
 DocumentRouter.post('/addDocument', async(ctx, next) => {
   const body = ctx.request.body;
-  const userId = ctx.cookies.get(config.cookieName);
+  const userId = ctx.cookie[config.cookieName];
   if(!userId) {
     ctx.resp = new InvalidQuery({message: "参数缺失"});
   } else {
@@ -45,7 +45,7 @@ DocumentRouter.post('/addDocument', async(ctx, next) => {
 
 DocumentRouter.post('/updateDocument', async(ctx, next) => {
   const body = ctx.request.body || {};
-  const userId = ctx.cookies.get(config.cookieName);
+  const userId = ctx.cookie[config.cookieName];
   if(!userId || !body.documentId) {
     ctx.resp = new InvalidQuery({message: "参数缺失"});
   } else {

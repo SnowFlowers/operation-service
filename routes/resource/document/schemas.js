@@ -28,6 +28,7 @@ DocumentSchema.pre('save', function(next) {
   if(!this.isNew) {
     this.updateDate = Date.now();
   }
+  next();
 });
 
 DocumentSchema.statics = {

@@ -8,6 +8,7 @@ const Koa = require('koa');
 const bodyParser = require("koa-bodyparser");
 const mount = require('koa-mount');
 const router = require('koa-router');
+const cookie = require('koa-cookie')
 const mongoose = require('mongoose');
 const queryparaser = require('./middlewares/queryParser');
 const response = require('./middlewares/response');
@@ -29,6 +30,8 @@ app.use(bodyParser({
   formLimit: '10mb',
   jsonLimit: '10mb'
 }));
+
+app.use(cookie.default());
 
 app.use(queryparaser);
 

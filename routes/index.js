@@ -5,12 +5,15 @@
 * @Last Modified time: 2017-12-10 15:11:06
 */
 
+const cookie = require('koa-cookie');
 const Router = require('koa-router');
 const rootRouter = new Router();
 
 const usercenter = require('./usercenter');
 const analysis = require('./analysis');
 const resource = require('./resource');
+
+rootRouter.use(cookie.default());
 
 rootRouter.use('/usercenter', usercenter.routes(), usercenter.allowedMethods());
 rootRouter.use('/analysiscenter', analysis.routes(), analysis.allowedMethods());
