@@ -126,7 +126,8 @@ UserRouter.get('/allUser', async function(ctx, next) {
   const result = await User.findAll();
   ctx.resp = {
     data: result
-  }
+  };
+  next();
 });
 
 module.exports = UserRouter;
